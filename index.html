@@ -3,215 +3,555 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI大模型程序员 | 个人简历</title>
+    <title>尤健 - AI大模型应用开发工程师</title>
     <style>
-        /* 完全参考目标网站风格，新增背景、交互按钮，优化质感 */
+        /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-            transition: all 0.3s ease; /* 全局交互过渡，贴合目标网站 */
+            font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
         }
+
         body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 导航栏 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4ade80;
+        }
+
+        /* 英雄区（个人概况） */
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at center, rgba(34, 211, 238, 0.1), transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #4ade80, #22d3ee, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #4ade80;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #aaa;
             max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
-            color: #333;
-            /* 新增简约背景，参考目标网站素净质感，不杂乱 */
-            background-color: #f8f9fa;
-            background-image: linear-gradient(120deg, #f5f7fa 0%, #eaf6fa 100%);
-            min-height: 100vh;
+            margin-bottom: 2rem;
         }
-        /* 新增容器，提升层次感，贴合目标网站布局 */
-        .container {
-            background: #fff;
-            padding: 50px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            color: #ccc;
+            margin-bottom: 2rem;
         }
-        .header {
-            margin-bottom: 40px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #222;
-        }
-        .header p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .section h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #eee;
-            color: #222;
+
+        .contact-info span {
             display: flex;
             align-items: center;
+            gap: 0.5rem;
         }
-        /* 新增标题小图标，贴合目标网站细节 */
-        .section h2::before {
-            content: "•";
-            color: #4299e1;
-            margin-right: 8px;
-            font-size: 24px;
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
         }
-        .section ul {
-            list-style: none;
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
         }
-        .section li {
-            font-size: 16px;
-            margin-bottom: 8px;
-            padding-left: 20px;
+
+        /* 通用板块样式 */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             position: relative;
         }
-        .section li::before {
-            content: "▫";
-            color: #4299e1;
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        /* 核心能力板块 */
+        .skills {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(34, 211, 238, 0.1);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #4ade80;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            color: #aaa;
+        }
+
+        .skill-card li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-card li::before {
+            content: '✓';
+            color: #4ade80;
             position: absolute;
             left: 0;
-            top: 2px;
+            font-weight: bold;
         }
-        .skill-group {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 4px;
-            /* 技能组 hover 交互，参考目标网站交互感 */
+
+        /* 项目经历板块 */
+        .projects {
+            padding-bottom: 6rem;
         }
-        .skill-group:hover {
-            background-color: #f5fafe;
-            transform: translateY(-2px);
+
+        .project-card {
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            border-left: 4px solid #4ade80;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .skill-group strong {
-            color: #444;
-            display: block;
-            margin-bottom: 5px;
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(34, 211, 238, 0.1);
         }
-        .contact {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+
+        .project-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        /* 新增交互按钮，参考目标网站联系按钮风格 */
-        .contact-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #4299e1;
-            color: #fff;
+
+        .project-header h3 {
+            font-size: 1.6rem;
+            color: #22d3ee;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header .role {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .project-content h4 {
+            color: #4ade80;
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .project-content p, .project-content ul {
+            color: #aaa;
+            margin-bottom: 1rem;
+        }
+
+        .project-content ul {
+            padding-left: 1.5rem;
+        }
+
+        .project-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .project-result {
+            color: #4ade80;
+            font-weight: 500;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(74, 222, 128, 0.2);
+        }
+
+        /* 教育背景 & 补充实践 */
+        .education {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .edu-card, .practice-card {
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .edu-card h3, .practice-card h3 {
+            color: #4ade80;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .edu-info, .practice-info {
+            color: #aaa;
+        }
+
+        .edu-info p, .practice-info p {
+            margin-bottom: 1rem;
+        }
+
+        .core-courses {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 自我评价 */
+        .self-eval {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .self-eval p {
+            color: #ccc;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* 页脚（联系方式） */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(74, 222, 128, 0.2);
+            background-color: rgba(10, 10, 10, 0.8);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        .footer-contact a {
+            color: #22d3ee;
             text-decoration: none;
-            border-radius: 4px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
+            transition: color 0.3s ease;
         }
-        .contact-btn:hover {
-            background-color: #3182ce;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(66, 153, 225, 0.3);
+
+        .footer-contact a:hover {
+            color: #4ade80;
         }
-        /* 适配移动端，保持交互一致性 */
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
+
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* 动画 */
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
             }
-            .header h1 {
-                font-size: 24px;
+            50% {
+                background-position: 100% 50%;
             }
-            .section h2 {
-                font-size: 20px;
+            100% {
+                background-position: 0% 50%;
             }
-            .section li {
-                font-size: 15px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
             }
-            .contact-btn {
-                padding: 8px 16px;
-                font-size: 15px;
+            .nav-links {
+                display: none;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                gap: 1rem;
+            }
+            .education {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container"&gt;
-        <!-- 顶部个人标签（贴合目标网站，新增边框分隔） -->
-        <div class="header">
-            <h1>你的姓名 | AI大模型程序员</h1>
-            <p>你好，我是 你的姓名</p>
-            <p>让大模型能力落地到每一个业务场景</p>
-            <p>1-3年AI大模型开发经验，专注于大模型落地与工程化实现</p>
-            <p>精通PyTorch/Hugging Face，擅长大模型微调、RAG落地、推理优化</p&gt;
-        &lt;/div&gt;
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">AI大模型应用开发</div>
+        <div class="nav-links">
+            <a href="#profile">个人概况</a>
+            <a href="#skills">核心能力</a>
+            <a href="#projects">项目经历</a>
+            <a href="#education">教育背景</a>
+            <a href="#contact">联系方式</a>
+        </div>
+    </nav>
 
-        <!-- 关于我（精简版，贴合参考网站） -->
-        <div class="section">
-            <h2>关于我</h2>
-            <p>深耕AI大模型领域，具备全流程项目落地经验，擅长大模型轻量化微调、推理优化与RAG知识库搭建，熟练掌握Hugging Face/PEFT等工具，能独立完成大模型应用从开发到部署的工程化实现，适配中厂研发节奏，助力业务场景高效落地。主导过3+企业级大模型应用项目，覆盖知识库问答、对话优化、内容生成等场景。</p>
+    <!-- 英雄区（个人概况） -->
+    <section class="hero" id="profile">
+        <h1>尤健 - AI大模型应用开发工程师</h1>
+        <div class="tagline">求职意向：AI大模型程序员</div>
+        <p>具备扎实的AI大模型基础理论与工程实践能力，熟悉大模型训练、微调及部署核心流程，掌握主流框架与工具，善于快速学习新技术，具备良好的问题排查与团队协作能力，目标是加入中厂AI团队，深耕大模型应用与优化方向。</p>
+        <div class="contact-info">
+            <span>📱 19157711944</span>
+            <span>📧 1056213112@qq.com</span>
+        </div>
+        <a href="#skills" class="btn">查看核心能力</a>
+    </section>
+
+    <!-- 核心能力板块（优化后） -->
+    <section class="skills" id="skills">
+        <h2 class="section-title">核心能力</h2>
+        <div class="skills-grid">
+            <!-- 技术基础能力（贴合大模型场景） -->
+            <div class="skill-card">
+                <h3>💻 技术基础能力</h3>
+                <ul>
+                    <li>编程语言：Python（大模型API调用、Prompt工程脚本开发、RAG系统开发），了解C++/Java</li>
+                    <li>数学基础：扎实掌握线性代数、概率论等，理解大模型底层数学原理（注意力机制/反向传播）</li>
+                    <li>数据库/向量库：了解MySQL、Milvus向量库（大模型知识库存储入门）</li>
+                </ul>
+            </div>
+
+            <!-- 大模型核心能力（新增高频考点） -->
+            <div class="skill-card">
+                <h3>🤖 大模型核心能力</h3>
+                <ul>
+                    <li>模型认知：熟悉Transformer架构，掌握大模型预训练、微调（LoRA/QLoRA）核心逻辑</li>
+                    <li>数据处理：大模型语料/微调数据清洗、RAG知识库数据预处理</li>
+                    <li>应用开发：RAG系统搭建与优化（入门）、LangChain框架基础使用</li>
+                    <li>部署与优化：了解大模型量化、剪枝，FastAPI封装大模型API（基础开发）</li>
+                    <li>Prompt工程：大模型提示词调优、Few-shot/Chain-of-Thought设计</li>
+                </ul>
+            </div>
+
+            <!-- 软实力与其他能力 -->
+            <div class="skill-card">
+                <h3>🌟 软实力与其他能力</h3>
+                <ul>
+                    <li>学习能力：快速学习新技术，跟进大模型领域前沿动态并落地应用</li>
+                    <li>问题排查：具备清晰的问题分析思路，解决模型训练/部署常见问题</li>
+                    <li>团队协作：良好的沟通协作能力，配合跨团队完成大模型相关项目</li>
+                    <li>文档撰写：规范撰写技术文档，便于团队协作与后续维护</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经历板块 -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">实践经历</h2>
+        
+        <!-- 项目一 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3>基于ChatGLM-6B的对话模型微调与部署</h3>
+                <div class="role">项目周期：2025.9-2025.12 | 个人角色：独立开发</div>
+            </div>
+            <div class="project-content">
+                <h4>项目目标</h4>
+                <p>基于ChatGLM-6B预训练模型，针对客服对话领域进行微调，优化模型对话准确性与相关性，并完成简易部署。</p>
+                <h4>核心工作</h4>
+                <ul>
+                    <li>大模型语料处理：收集并预处理客服对话数据集，完成清洗、去重、标注，构建微调训练集；</li>
+                    <li>模型微调：使用Hugging Face Transformers加载模型，LoRA方法微调，调整超参数解决过拟合；</li>
+                    <li>API封装：使用FastAPI搭建模型API服务，部署到本地服务器支持请求调用；</li>
+                    <li>效果验证：测试微调后模型性能，对比效果并优化响应速度。</li>
+                </ul>
+                <div class="project-result">项目成果：微调后准确率提升30%，响应时间控制在1s内，掌握完整微调+部署+API封装流程。</div>
+            </div>
         </div>
 
-        <!-- 个人信息（简洁罗列，参考网站格式） -->
-        <div class="section">
-            <h2>个人信息</h2>
-            <ul>
-                <li><strong>姓名：</strong>你的姓名</li>
-                <li><strong>邮箱：</strong>你的邮箱@xxx.com</li>
-                <li><strong>电话：</strong>你的手机号</li>
-                <li><strong>专业：</strong>计算机/人工智能/软件工程相关</li>
-                <li><strong>求职意向：</strong>AI大模型程序员、LLM应用开发工程师</li&gt;
-            &lt;/ul&gt;
-        &lt;/div&gt;
-
-        <!-- 项目经验（量化成果，无冗余，参考网站风格） -->
-        <div class="section">
-            <h2>项目经验</h2>
-            <ul>
-                <li><strong>企业级知识库大模型问答系统（核心开发）</strong>：完成QLoRA微调+Milvus RAG搭建+量化优化，查询准确率92%+，响应≤2s，支撑500+员工日常办公，大幅降低信息检索耗时。</li>
-                <li><strong>通用对话大模型微调与优化</strong>：采用LoRA轻量化微调方案，指令遵循率提升至88%，参数量压缩60%，推理速度提升50%，可在中端服务器稳定运行，具备规模化落地条件。</li>
-                <li><strong>AI内容生成工具开发与模型集成</strong>：对接主流大模型API并封装，基于Flask搭建后端，内容合格率85%+，支持批量生成，适配自媒体、电商多场景，提升创作效率60%。</li>
-            </ul>
+        <!-- 项目二 -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3>大模型文本生成与优化实验</h3>
+                <div class="role">项目周期：2026.3-2026.6 | 个人角色：核心开发</div>
+            </div>
+            <div class="project-content">
+                <h4>项目目标</h4>
+                <p>基于LLaMA-7B模型实现文本生成功能，通过量化、剪枝优化推理效率，适配轻量化部署需求。</p>
+                <h4>核心工作</h4>
+                <ul>
+                    <li>Prompt工程：基于LLaMA-7B调用Hugging Face库实现文本生成，优化提示词提升生成效果；</li>
+                    <li>模型优化：使用GPTQ工具对模型进行INT4量化，对比量化前后性能与效果；</li>
+                    <li>推理提速：采用剪枝方法去除冗余参数，提升推理速度且保证生成效果；</li>
+                    <li>文档输出：撰写实验报告，记录参数调整、优化效果与核心技术要点。</li>
+                </ul>
+                <div class="project-result">项目成果：模型量化后显存占用降低60%，推理速度提升40%，积累Prompt工程+模型优化经验。</div>
+            </div>
         </div>
+    </section>
 
-        <!-- 技能栈（分大类罗列，参考网站格式，新增hover交互） -->
-        <div class="section">
-            <h2>技能栈</h2>
-            <div class="skill-group">
-                <strong>大模型框架</strong>
-                <span>PyTorch、Hugging Face Transformers、PEFT、LoRA、QLoRA</span>
+    <!-- 教育背景 & 补充实践（优化版） -->
+    <section class="education-section" id="education">
+        <h2 class="section-title">教育背景 & 补充实践</h2>
+        <div class="education">
+            <!-- 教育背景（精简核心课程，避开绩点） -->
+            <div class="edu-card">
+                <h3>🎓 教育背景</h3>
+                <div class="edu-info">
+                    <p><strong>学历：</strong>本科</p>
+                    <p><strong>专业：</strong>计算机科学与技术/人工智能</p>
+                    <p><strong>毕业院校：</strong>浙江财经大学</p>
+                    <p><strong>毕业时间：</strong>2024.6</p>
+                    <div class="core-courses">
+                        <p><strong>核心课程：</strong>机器学习、深度学习、Python程序设计、数据库原理（AI核心方向）</p>
+                    </div>
+                </div>
             </div>
-            <div class="skill-group">
-                <strong>向量数据库</strong>
-                <span>Milvus、FAISS、Chroma</span>
-            </div>
-            <div class="skill-group">
-                <strong>开发语言</strong>
-                <span>Python（精通）、C/C++（基础）、Shell</span>
-            </div>
-            <div class="skill-group">
-                <strong>部署运维</strong>
-                <span>Git、Docker、Linux、FastAPI、Flask、MySQL、Redis</span>
-            </div>
-            <div class="skill-group">
-                <strong>API集成</strong>
-                <span>OpenAI、百度文心、阿里通义</span&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
 
-        <!-- 联系我（参考网站风格，新增交互按钮） -->
-        <div class="contact">
-            <h2>联系我</h2>
-            <p>如果您有AI大模型应用相关的合作需求或技术交流，欢迎随时联系我</p>
-            <a href="mailto:你的邮箱@xxx.com" class="contact-btn">发送邮件</a>
-            <a href="tel:你的手机号" class="contact-btn" style="margin-left: 10px;">电话联系</a>
+            <!-- 补充实践（弹性表述，保留初稿空间） -->
+            <div class="practice-card">
+                <h3>📚 补充实践</h3>
+                <div class="practice-info">
+                    <p>✓ 系统学习《大模型训练与微调实战》《Transformer架构解析》等课程，掌握核心实操技巧；</p>
+                    <p>✓ 自主完成AI文本生成类实战项目，基于预训练模型实现文本摘要生成功能，沉淀调优经验；</p>
+                    <p>✓ 持续学习大模型前沿技术（RAG/LangChain），积累学习笔记与项目总结，沉淀技术经验。</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- 自我评价 -->
+    <section class="evaluation">
+        <h2 class="section-title">自我评价</h2>
+        <div class="self-eval">
+            <p>本人对AI大模型领域充满热情，具备中厂AI大模型程序员入行所需的技术基础与实践能力，熟悉大模型微调、部署与优化核心流程，掌握RAG、LangChain、Prompt工程等核心应用技术，能够快速适应团队工作节奏。具备扎实的数学与计算机基础，善于总结问题、优化方案，愿意投入时间深耕大模型技术，快速提升自身能力，为团队项目贡献力量。性格严谨负责、积极主动，具备良好的学习能力与协作意识，适合中厂AI团队的入行岗位，期待加入贵团队共同成长。</p>
+        </div>
+    </section>
+
+    <!-- 页脚（联系方式：链接可跳转） -->
+    <footer id="contact">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">联系方式</h2>
+        <div class="footer-contact">
+            <span>📱 联系电话：<a href="tel:19157711944">19157711944</a></span>
+            <span>📧 电子邮箱：<a href="mailto:1056213112@qq.com">1056213112@qq.com</a></span>
+            <span>💻 GitHub：<a href="https://github.com/youjian-ai-study" target="_blank">https://github.com/youjian-ai-study</a></span>
+            <span>📝 个人博客：<a href="https://blog.csdn.net/Friend__AA" target="_blank">https://blog.csdn.net/Friend__AA</a></span>
+        </div>
+        <div class="copyright">© 2025 尤健 - AI大模型应用开发工程师 版权所有</div>
+    </footer>
 </body>
 </html>
