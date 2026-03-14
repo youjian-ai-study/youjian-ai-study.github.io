@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI大模型程序员 | 个人简历</title>
     <style>
-        /* 极简风格，贴合参考网站，适配电脑/手机端 */
+        /* 完全参考目标网站风格，新增背景、交互按钮，优化质感 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease; /* 全局交互过渡，贴合目标网站 */
         }
         body {
             max-width: 800px;
@@ -18,11 +19,23 @@
             padding: 40px 20px;
             line-height: 1.6;
             color: #333;
-            background-color: #fff;
+            /* 新增简约背景，参考目标网站素净质感，不杂乱 */
+            background-color: #f8f9fa;
+            background-image: linear-gradient(120deg, #f5f7fa 0%, #eaf6fa 100%);
+            min-height: 100vh;
+        }
+        /* 新增容器，提升层次感，贴合目标网站布局 */
+        .container {
+            background: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
         .header {
             margin-bottom: 40px;
             text-align: left;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
         .header h1 {
             font-size: 28px;
@@ -43,6 +56,15 @@
             padding-bottom: 5px;
             border-bottom: 1px solid #eee;
             color: #222;
+            display: flex;
+            align-items: center;
+        }
+        /* 新增标题小图标，贴合目标网站细节 */
+        .section h2::before {
+            content: "•";
+            color: #4299e1;
+            margin-right: 8px;
+            font-size: 24px;
         }
         .section ul {
             list-style: none;
@@ -50,9 +72,25 @@
         .section li {
             font-size: 16px;
             margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .section li::before {
+            content: "▫";
+            color: #4299e1;
+            position: absolute;
+            left: 0;
+            top: 2px;
         }
         .skill-group {
             margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            /* 技能组 hover 交互，参考目标网站交互感 */
+        }
+        .skill-group:hover {
+            background-color: #f5fafe;
+            transform: translateY(-2px);
         }
         .skill-group strong {
             color: #444;
@@ -64,8 +102,29 @@
             padding-top: 20px;
             border-top: 1px solid #eee;
         }
-        /* 适配移动端 */
+        /* 新增交互按钮，参考目标网站联系按钮风格 */
+        .contact-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #4299e1;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .contact-btn:hover {
+            background-color: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(66, 153, 225, 0.3);
+        }
+        /* 适配移动端，保持交互一致性 */
         @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
             .header h1 {
                 font-size: 24px;
             }
@@ -75,76 +134,84 @@
             .section li {
                 font-size: 15px;
             }
+            .contact-btn {
+                padding: 8px 16px;
+                font-size: 15px;
+            }
         }
     </style>
 </head>
-<body&gt;
-    <!-- 顶部个人标签（一眼定调，贴合参考网站） -->
-    <div class="header">
-        <h1>你的姓名 | AI大模型程序员</h1>
-        <p>你好，我是 你的姓名</p>
-        <p>让大模型能力落地到每一个业务场景</p>
-        <p>1-3年AI大模型开发经验，专注于大模型落地与工程化实现</p>
-        <p>精通PyTorch/Hugging Face，擅长大模型微调、RAG落地、推理优化</p>
-    </div>
+<body>
+    <div class="container"&gt;
+        <!-- 顶部个人标签（贴合目标网站，新增边框分隔） -->
+        <div class="header">
+            <h1>你的姓名 | AI大模型程序员</h1>
+            <p>你好，我是 你的姓名</p>
+            <p>让大模型能力落地到每一个业务场景</p>
+            <p>1-3年AI大模型开发经验，专注于大模型落地与工程化实现</p>
+            <p>精通PyTorch/Hugging Face，擅长大模型微调、RAG落地、推理优化</p&gt;
+        &lt;/div&gt;
 
-   <!-- 关于我（精简版，贴合参考网站） -->
-    <div class="section">
-        <h2>关于我</h2>
-        <p>深耕AI大模型领域，具备全流程项目落地经验，擅长大模型轻量化微调、推理优化与RAG知识库搭建，熟练掌握Hugging Face/PEFT等工具，能独立完成大模型应用从开发到部署的工程化实现，适配中厂研发节奏，助力业务场景高效落地。主导过3+企业级大模型应用项目，覆盖知识库问答、对话优化、内容生成等场景。&lt;/p&gt;
-    &lt;/div&gt;
+        <!-- 关于我（精简版，贴合参考网站） -->
+        <div class="section">
+            <h2>关于我</h2>
+            <p>深耕AI大模型领域，具备全流程项目落地经验，擅长大模型轻量化微调、推理优化与RAG知识库搭建，熟练掌握Hugging Face/PEFT等工具，能独立完成大模型应用从开发到部署的工程化实现，适配中厂研发节奏，助力业务场景高效落地。主导过3+企业级大模型应用项目，覆盖知识库问答、对话优化、内容生成等场景。</p>
+        </div>
 
-    <!-- 个人信息（简洁罗列，参考网站格式） -->
-    <div class="section">
-        <h2>个人信息</h2>
-        <ul>
-            <li><strong>姓名：</strong>你的姓名</li>
-            <li><strong>邮箱：</strong>你的邮箱@xxx.com</li>
-            <li><strong>电话：</strong>你的手机号</li>
-            <li><strong>专业：</strong>计算机/人工智能/软件工程相关</li>
-            <li><strong>求职意向：</strong>AI大模型程序员、LLM应用开发工程师</li>
-        &lt;/ul&gt;
-    &lt;/div&gt;
+        <!-- 个人信息（简洁罗列，参考网站格式） -->
+        <div class="section">
+            <h2>个人信息</h2>
+            <ul>
+                <li><strong>姓名：</strong>你的姓名</li>
+                <li><strong>邮箱：</strong>你的邮箱@xxx.com</li>
+                <li><strong>电话：</strong>你的手机号</li>
+                <li><strong>专业：</strong>计算机/人工智能/软件工程相关</li>
+                <li><strong>求职意向：</strong>AI大模型程序员、LLM应用开发工程师</li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
 
-    <!-- 项目经验（量化成果，无冗余，参考网站风格） -->
-    <div class="section">
-        <h2>项目经验</h2>
-        <ul>
-            <li><strong>企业级知识库大模型问答系统（核心开发）</strong>：完成QLoRA微调+Milvus RAG搭建+量化优化，查询准确率92%+，响应≤2s，支撑500+员工日常办公，大幅降低信息检索耗时。</li>
-            <li><strong>通用对话大模型微调与优化</strong>：采用LoRA轻量化微调方案，指令遵循率提升至88%，参数量压缩60%，推理速度提升50%，可在中端服务器稳定运行，具备规模化落地条件。</li>
-            <li><strong>AI内容生成工具开发与模型集成</strong>：对接主流大模型API并封装，基于Flask搭建后端，内容合格率85%+，支持批量生成，适配自媒体、电商多场景，提升创作效率60%。</li>
-        </ul&gt;
-    &lt;/div&gt;
+        <!-- 项目经验（量化成果，无冗余，参考网站风格） -->
+        <div class="section">
+            <h2>项目经验</h2>
+            <ul>
+                <li><strong>企业级知识库大模型问答系统（核心开发）</strong>：完成QLoRA微调+Milvus RAG搭建+量化优化，查询准确率92%+，响应≤2s，支撑500+员工日常办公，大幅降低信息检索耗时。</li>
+                <li><strong>通用对话大模型微调与优化</strong>：采用LoRA轻量化微调方案，指令遵循率提升至88%，参数量压缩60%，推理速度提升50%，可在中端服务器稳定运行，具备规模化落地条件。</li>
+                <li><strong>AI内容生成工具开发与模型集成</strong>：对接主流大模型API并封装，基于Flask搭建后端，内容合格率85%+，支持批量生成，适配自媒体、电商多场景，提升创作效率60%。</li>
+            </ul>
+        </div>
 
-    <!-- 技能栈（分大类罗列，参考网站格式） -->
-    <div class="section">
-        <h2>技能栈</h2>
-        <div class="skill-group">
-            <strong>大模型框架</strong>
-            <span>PyTorch、Hugging Face Transformers、PEFT、LoRA、QLoRA</span>
-        </div>
-        <div class="skill-group">
-            <strong>向量数据库</strong>
-            <span>Milvus、FAISS、Chroma</span>
-        </div>
-        <div class="skill-group">
-            <strong>开发语言</strong>
-            <span>Python（精通）、C/C++（基础）、Shell</span>
-        </div>
-        <div class="skill-group">
-            <strong>部署运维</strong>
-            <span>Git、Docker、Linux、FastAPI、Flask、MySQL、Redis</span>
-        </div>
-        <div class="skill-group">
-            <strong>API集成</strong>
-            <span>OpenAI、百度文心、阿里通义</span>
-        </div>
-    </div&gt;
+        <!-- 技能栈（分大类罗列，参考网站格式，新增hover交互） -->
+        <div class="section">
+            <h2>技能栈</h2>
+            <div class="skill-group">
+                <strong>大模型框架</strong>
+                <span>PyTorch、Hugging Face Transformers、PEFT、LoRA、QLoRA</span>
+            </div>
+            <div class="skill-group">
+                <strong>向量数据库</strong>
+                <span>Milvus、FAISS、Chroma</span>
+            </div>
+            <div class="skill-group">
+                <strong>开发语言</strong>
+                <span>Python（精通）、C/C++（基础）、Shell</span>
+            </div>
+            <div class="skill-group">
+                <strong>部署运维</strong>
+                <span>Git、Docker、Linux、FastAPI、Flask、MySQL、Redis</span>
+            </div>
+            <div class="skill-group">
+                <strong>API集成</strong>
+                <span>OpenAI、百度文心、阿里通义</span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-    <!-- 联系我（参考网站风格，简洁友好） -->
-    <div class="contact">
-        <h2>联系我</h2>
-        <p>如果您有AI大模型应用相关的合作需求或技术交流，欢迎随时联系我</p>
+        <!-- 联系我（参考网站风格，新增交互按钮） -->
+        <div class="contact">
+            <h2>联系我</h2>
+            <p>如果您有AI大模型应用相关的合作需求或技术交流，欢迎随时联系我</p>
+            <a href="mailto:你的邮箱@xxx.com" class="contact-btn">发送邮件</a>
+            <a href="tel:你的手机号" class="contact-btn" style="margin-left: 10px;">电话联系</a>
+        </div>
     </div>
 </body>
 </html>
